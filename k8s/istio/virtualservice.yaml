@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: movietrack-vs
+  namespace: movietrack
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - movietrack-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /api/movies
+      route:
+        - destination:
+            host: catalog
+            port:
+              number: 8080
