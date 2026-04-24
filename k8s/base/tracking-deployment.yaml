@@ -1,25 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalog
+  name: tracking
   namespace: movietrack
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: catalog
+      app: tracking
   template:
     metadata:
       labels:
-        app: catalog
+        app: tracking
     spec:
       containers:
-        - name: catalog
-          image: 1yacine/movietrack-catalog:latest
+        - name: tracking
+          image: 1yacine/movietrack-tracking:latest
           imagePullPolicy: Never
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
           ports:
             - containerPort: 8080
-            - containerPort: 9090
           resources:
             requests:
               memory: "256Mi"

@@ -1,0 +1,6 @@
+server:
+  port: 8080
+catalog:
+  grpc:
+    host: catalog
+    port: 9090

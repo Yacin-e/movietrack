@@ -10,9 +10,9 @@
         <relativePath/>
     </parent>
     <groupId>com.movietrack</groupId>
-    <artifactId>catalog-service</artifactId>
+    <artifactId>tracking-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>catalog-service</name>
+    <name>tracking-service</name>
     <properties>
         <java.version>21</java.version>
         <grpc.version>1.64.0</grpc.version>

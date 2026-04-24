@@ -17,3 +17,11 @@ spec:
             host: catalog
             port:
               number: 8080
+    - match:
+        - uri:
+            prefix: /api/tracking
+      route:
+        - destination:
+            host: tracking
+            port:
+              number: 8080
