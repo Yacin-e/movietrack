@@ -1,0 +1,35 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: catalog-access
+  namespace: movietrack
+spec:
+  selector:
+    matchLabels:
+      app: catalog
+  action: ALLOW
+  rules:
+    - from:
+        - source:
+            principals:
+              - "cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+    - from:
+        - source:
+            principals:
+              - "cluster.local/ns/movietrack/sa/tracking-sa"
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: tracking-access
+  namespace: movietrack
+spec:
+  selector:
+    matchLabels:
+      app: tracking
+  action: ALLOW
+  rules:
+    - from:
+        - source:
+            principals:
+              - "cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
