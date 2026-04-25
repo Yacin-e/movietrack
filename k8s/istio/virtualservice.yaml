@@ -25,3 +25,8 @@ spec:
             host: tracking
             port:
               number: 8080
+    - route:
+        - destination:
+            host: frontend
+            port:
+              number: 80
