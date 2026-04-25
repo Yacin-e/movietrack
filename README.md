@@ -47,9 +47,7 @@ All inter-service traffic inside the `movietrack` namespace is encrypted with **
 
 ## Running locally
 
-Prerequisites: Minikube running with Istio addon, `kubectl`, `docker`.
-
-*Replace `1yacine` with your own Docker Hub username if you are rebuilding the images.*
+Prerequisites: `minikube`, `kubectl`, `docker`.
 
 ```bash
 # Start Minikube and install Istio
@@ -61,16 +59,7 @@ kubectl label namespace movietrack istio-injection=enabled --overwrite
 ```
 
 ```bash
-# Point Docker CLI at Minikube's daemon
-eval $(minikube docker-env)
-export JAVA_HOME=$(/usr/libexec/java_home -v 21)
-
-# Build images
-docker build -f catalog-service/Dockerfile  -t 1yacine/movietrack-catalog:latest  .
-docker build -f tracking-service/Dockerfile -t 1yacine/movietrack-tracking:latest .
-docker build -f frontend/Dockerfile         -t 1yacine/movietrack-frontend:latest  frontend/
-
-# Deploy
+# Deploy — images are pulled from Docker Hub (1yacine/movietrack-*)
 kubectl apply -f k8s/base/namespace.yaml
 kubectl apply -f k8s/rbac/
 kubectl apply -f k8s/base/mysql-secrets.yaml

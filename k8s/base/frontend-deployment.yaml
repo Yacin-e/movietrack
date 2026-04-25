@@ -17,7 +17,7 @@ spec:
       containers:
         - name: frontend
           image: 1yacine/movietrack-frontend:latest
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           resources:
