@@ -1,1 +1,11 @@
-# Filled in Phase 4 (MySQL)
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-catalog:3306/catalogdb
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true

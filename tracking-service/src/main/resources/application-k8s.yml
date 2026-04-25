@@ -1,5 +1,16 @@
 server:
   port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-tracking:3306/trackingdb
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 catalog:
   grpc:
     host: catalog
