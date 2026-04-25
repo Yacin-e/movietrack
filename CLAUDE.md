@@ -3,11 +3,11 @@
 > Read `PROJECT.md` first. This file tells you *how to behave* while working on this project. `PROJECT.md` tells you *what* to build.
 > Read `STATUS.md` to know exactly where we left off and what to do next session.
 
-## Session state (2026-04-24)
-- **Phases done:** 0–5 (MySQL). Not yet committed.
-- **Next:** Verify MySQL persistence test, commit milestone-5, then Phase 6 (RBAC + mTLS → 18/20).
+## Session state (2026-04-25)
+- **Phases done:** 0–7 (all phases + bonus frontend). All committed except bonus frontend (user commits manually).
+- **Next:** Report writing session.
 - **Docker Hub user:** `1yacine`
-- **Minikube:** stopped (API server crashed from memory pressure). Run `minikube start` first.
+- **Minikube:** running, all pods 2/2. Gateway on `kubectl port-forward svc/istio-ingressgateway 29080:80 -n istio-system`.
 
 ## Hard-won technical constraints — DO NOT change these
 
