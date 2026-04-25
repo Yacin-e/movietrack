@@ -13,6 +13,7 @@ spec:
       labels:
         app: tracking
     spec:
+      serviceAccountName: tracking-sa
       initContainers:
         - name: wait-for-mysql
           image: mysql:8.0
